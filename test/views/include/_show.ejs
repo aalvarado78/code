@@ -1,0 +1,26 @@
+<%for(var i = 0; i< hardware.length; i++) {%>
+<tr>
+  <td><%= i + 1 %></td>
+  <td><%= hardware[i].hardwareName %></td>
+  <td><%= hardware[i].vendor%></td>
+  <td><%= hardware[i].location%></td>
+  <td><%= hardware[i].performance%></td>
+  <td><%= hardware[i].status%></td>
+  <td><%= new Date(hardware[i].date).toDateString()%></td>
+  <td>
+    <a
+      href="/update-hardware?id=<%=hardware[i]._id%>"
+      class="btn border-shadow update"
+    >
+      <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+    </a>
+    <a
+      href="/api/hardware/<%=hardware[i]._id%>"
+      class="btn border-shadow delete"
+      data-id="<%=hardware[i]._id%>"
+    >
+      <span class="text-gradient"><i class="fas fa-times"></i></span>
+    </a>
+  </td>
+</tr>
+<% } %>
